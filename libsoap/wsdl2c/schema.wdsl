@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://rpmmaker.dtg.adeo.com" xmlns:tns="http://rpmmaker.dtg.adeo.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding" xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+<xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://rpmmaker.dtg.adeo.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:element name="setSourceFile">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="in0" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="in1" nillable="true" type="xsd:base64Binary"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setSourceFileResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="out" type="xsd:int"/>
+
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="generateRPM">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="in0" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="generateRPMResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="out" type="xsd:int"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+
+<xsd:element name="getError">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="in0" type="xsd:int"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getErrorResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setSpecFile">
+<xsd:complexType>
+<xsd:sequence>
+
+<xsd:element maxOccurs="1" minOccurs="1" name="in0" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="in1" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="setSpecFileResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="out" type="xsd:int"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>
+
+  </wsdl:types>
+  <wsdl:message name="generateRPMResponse">
+
+    <wsdl:part name="parameters" element="tns:generateRPMResponse"/>
+  </wsdl:message>
+  <wsdl:message name="setSpecFileRequest">
+    <wsdl:part name="parameters" element="tns:setSpecFile"/>
+  </wsdl:message>
+  <wsdl:message name="generateRPMRequest">
+    <wsdl:part name="parameters" element="tns:generateRPM"/>
+  </wsdl:message>
+  <wsdl:message name="setSourceFileResponse">
+
+    <wsdl:part name="parameters" element="tns:setSourceFileResponse"/>
+  </wsdl:message>
+  <wsdl:message name="setSpecFileResponse">
+    <wsdl:part name="parameters" element="tns:setSpecFileResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getErrorRequest">
+    <wsdl:part name="parameters" element="tns:getError"/>
+  </wsdl:message>
+  <wsdl:message name="getErrorResponse">
+
+    <wsdl:part name="parameters" element="tns:getErrorResponse"/>
+  </wsdl:message>
+  <wsdl:message name="setSourceFileRequest">
+    <wsdl:part name="parameters" element="tns:setSourceFile"/>
+  </wsdl:message>
+  <wsdl:portType name="RPMMakerPortType">
+    <wsdl:operation name="setSourceFile">
+      <wsdl:input name="setSourceFileRequest" message="tns:setSourceFileRequest"/>
+      <wsdl:output name="setSourceFileResponse" message="tns:setSourceFileResponse"/>
+
+    </wsdl:operation>
+    <wsdl:operation name="generateRPM">
+      <wsdl:input name="generateRPMRequest" message="tns:generateRPMRequest"/>
+      <wsdl:output name="generateRPMResponse" message="tns:generateRPMResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getError">
+      <wsdl:input name="getErrorRequest" message="tns:getErrorRequest"/>
+      <wsdl:output name="getErrorResponse" message="tns:getErrorResponse"/>
+    </wsdl:operation>
+
+    <wsdl:operation name="setSpecFile">
+      <wsdl:input name="setSpecFileRequest" message="tns:setSpecFileRequest"/>
+      <wsdl:output name="setSpecFileResponse" message="tns:setSpecFileResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RPMMakerHttpBinding" type="tns:RPMMakerPortType">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="setSourceFile">
+      <wsdlsoap:operation soapAction=""/>
+
+      <wsdl:input name="setSourceFileRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setSourceFileResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateRPM">
+      <wsdlsoap:operation soapAction=""/>
+
+      <wsdl:input name="generateRPMRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="generateRPMResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getError">
+      <wsdlsoap:operation soapAction=""/>
+
+      <wsdl:input name="getErrorRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getErrorResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setSpecFile">
+      <wsdlsoap:operation soapAction=""/>
+
+      <wsdl:input name="setSpecFileRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setSpecFileResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RPMMaker">
+
+    <wsdl:port name="RPMMakerHttpPort" binding="tns:RPMMakerHttpBinding">
+      <wsdlsoap:address location="http://10.2.51.10:9080/rpmmaker/ws/RPMMaker"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
+

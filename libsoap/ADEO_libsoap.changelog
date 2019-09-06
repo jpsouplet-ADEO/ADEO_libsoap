@@ -1,0 +1,17 @@
+* Wed Feb 21 2018 JPS (2.3.3)
+- SHA2
+* Thu Aug 29 2017 JPS (2.1.0)
+- RPM under jenkins
+- RPM for centos7 64 bits
+* Mon Feb  9 2009 RGH (2.0-2)
+- Rename lib/ to lib64. Thus we can install ADEO_libsoap with 32bits libraries in lib/.
+* Mon Feb  2 2009 GJK (2.0-1)
+- Source have been compiled for x86_64 architecture. This new version is only for RH5 server.
+* Thu May 29 2008 SRT (1.2-1)
+- correct bug rpm with symbolic link
+* Wed May 28 2008 SRT  (1.2-0)
+- patch libcsoap timeout cnx caisse
+* Mon May 26 2008 LLR (1.1-0)
+- Add patch for non blocking connection
+* Wed Sep 05 2007 SRT (1.0-0)
+- creation (release 1.0-0)
